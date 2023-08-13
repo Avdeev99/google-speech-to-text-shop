@@ -1,0 +1,36 @@
+<div class="container p-0 pt-4">
+
+  <div class="search-block">
+      <div class="filter-block">
+          <button class="regular-btn" (click)="searchByAudio('audio1.flac')">Audio 1</button>
+          <button class="regular-btn" (click)="searchByAudio('audio2.flac')">Audio 2</button>
+          <button class="regular-btn" (click)="searchByAudio('audio3.flac')">Audio 3</button>
+          <button class="regular-btn" (click)="setGoods()">Refresh</button>
+      </div>
+      
+      <div class="souvenirs-block">
+          <section class="list_items_section">
+              <div class="container-fluid container-fluid-padding">
+                  <div class="row">
+                      <div *ngFor="let good of goods$ | async" class="col-lg-4 list_item_block cursor-pointer">
+                          <div  class="list_item_image_holder" [ngStyle]="{'background-image': 'url(https://images.prismic.io/frameworkmarketplace/cca31de3-3b75-4932-af96-7646b7eba6c7__DSC3630-Edit-cropped.jpg?auto=compress,format)'}">
+                                          
+                          </div>
+                          <div class="name-price-block">
+                            <div class="list_item_description">
+                              <span class="list_item_description_makemodel">Name: {{ good.name }}</span>
+                            </div>
+                            <div class="list_item_description">
+                              <span class="list_item_description_makemodel">Price: {{ good.price }} $</span>
+                            </div>
+                          </div>
+                          <div class="list_item_description">
+                            <span class="list_item_description_makemodel">Description: {{ good.description }}</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </div>
+  </div>
+</div>
